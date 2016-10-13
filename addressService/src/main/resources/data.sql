@@ -1,0 +1,2 @@
+INSERT INTO ADDRESS (street, city ,state ,country,customerId) VALUES ('Sadler','Richmond','VA','US',1);
+INSERT INTO ADDRESS (street, city ,state ,country,customerId) VALUES ('Springfield','Harrisburg','PA','US',2);
