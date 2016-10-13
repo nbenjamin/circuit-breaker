@@ -15,8 +15,10 @@ public class AddressRepository {
     private JdbcTemplate jdbcTemplate;
 
 
-    public Collection<Address> findByCustomerId(Long customerId) {
-        return null;
+    public Address findByCustomerId(Long customerId) {
+        return jdbcTemplate.queryForObject("select * from Address where customerId ="+customerId, (rs, rowNum) -> {
+            return new Address(rs.getString("street"), rs.getString("city"), rs.getString("state"), rs.getString("country"), rs.getLong("customerId"));
+        });
     }
 
     public void save(Address address) {

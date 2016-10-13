@@ -6,6 +6,7 @@ import com.nbenja.springboot.repository.AddressRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Collection;
@@ -19,5 +20,9 @@ public class AddressController {
     @GetMapping( path = "/demo/address")
     public Collection<Address> getAddresses() {
         return addressRepository.findAll();
+    }
+    @GetMapping( path = "/demo/address/{customerId}")
+    public Address getAddress(@PathVariable("customerId") Long customerId) {
+        return addressRepository.findByCustomerId(customerId);
     }
 }
